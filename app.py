@@ -1,7 +1,7 @@
 # WeHelp Assignment: Week-4
 # Python Flask
 
-# Import flask
+# Import Flask and related modules
 from flask import Flask, request, redirect, url_for, render_template, session
 import os # for secret key
 
@@ -13,7 +13,8 @@ app.secret_key = os.urandom(16) # random string to generate secret key
 # username: test, password: test
 user_test = {"username": "test", "password": "test"}
 
-# Handle route "/"
+# Request-1, 2, 3
+# Handle route "/" as homepage
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -43,7 +44,7 @@ def member():
     if ("user" in session and session["user"] == user_test["username"]):
         return render_template("member.html")
     else:
-        return redirect("/") # if not, redirect to home
+        return redirect("/") # if not, redirect to homepage
 
 # Handle route "/error"
 @app.route("/error")
@@ -58,31 +59,22 @@ def error():
 def signout():
     # delete user from session
     session.pop("user")
-    return redirect("/") # redirect to home after signout
+    return redirect("/") # redirect to homepage after signout
 
-# get number from form and pass to calculate_square()
+# Request-4 (Optional)
+# Handle route "/square"
 @app.route("/square")
 def square():
+    # get number from form and pass to calculate_square()
     input_number = request.args.get("number")
     return redirect(url_for("calculate_square", number = input_number))
 
+# Handle route "/square/<number>", display URL as /square/input_number
 @app.route("/square/<number>")
 def calculate_square(number):
     number = int(number)
-    result = number * number
+    result = number * number # calculate number * number (square)
     return render_template("square.html", show_result = result)
-
-# # Handle route "/square"
-# @app.route("/square", methods = ["POST"])
-# def square():
-#     number = request.form["number"]
-#     return redirect("/square/" + number)
-
-# @app.route("/square/<number>")
-# def square_result(number):
-#     number = int(number)
-#     result = number * number
-#     return render_template("square.html", square_result = result)
 
 # Run server, port set as 3000
 app.run(port = 3000) # http://127.0.0.1:3000/
