@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeHelp Assignment: Week-4</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="welcome">歡迎光臨，請輸入帳號密碼</div>
+    </header>
+    <main>
+        <div>登入系統</div>
+        <form action="/signin" method="POST">
+            <div class="input">
+                <label>帳號</label><input type="text" name="username" />
+            </div>
+            <div class="input">
+                <label>密碼</label><input type="password" name="password" />
+            </div>
+            <button>登入</button>
+        </form>
+        <hr/>
+        <form action="/square">
+            <div>計算正整數的平方</div>
+            <div class="input">
+                <label>正整數</label> <input type="text" name="number">
+            </div>
+            <button>計算</button>
+        </form>
+    </main>
+</body>
+</html>
