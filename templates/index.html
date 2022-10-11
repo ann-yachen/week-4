@@ -23,13 +23,20 @@
             <button>登入</button>
         </form>
         <hr/>
-        <form action="/square">
-            <div>計算正整數的平方</div>
-            <div class="input">
-                <label>正整數</label> <input type="text" name="number">
-            </div>
-            <button>計算</button>
-        </form>
+        <div>計算正整數的平方</div>
+        <div class="input">
+            <label>正整數</label><input type="text" id="number">
+        </div>
+        <button onclick="square()">計算</button>
     </main>
+    <script>
+        function square(){
+            let number = document.querySelector("#number").value; // get the value of input
+            number = parseInt(number); // change to integer
+            if(number > 0){ // if number is a positive integer
+                window.location.href="/square/" + String(number); // change to "/square/number"
+            }
+        }
+    </script>
 </body>
 </html>

@@ -62,13 +62,6 @@ def signout():
     return redirect("/") # redirect to homepage after signout
 
 # Request-4 (Optional)
-# Handle route "/square"
-@app.route("/square")
-def square():
-    # get number from form and pass to calculate_square()
-    input_number = request.args.get("number")
-    return redirect(url_for("calculate_square", number = input_number))
-
 # Handle route "/square/<number>", display URL as /square/input_number
 @app.route("/square/<number>")
 def calculate_square(number):
