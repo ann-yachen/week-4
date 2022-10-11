@@ -2,7 +2,7 @@
 # Python Flask
 
 # Import Flask and related modules
-from flask import Flask, request, redirect, url_for, render_template, session
+from flask import Flask, request, redirect, render_template, session
 import os # for secret key
 
 # Create Application object
